@@ -1,14 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 
-from django.contrib.sitemaps import GenericSitemap
+
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-#from haystack.query import SearchQuerySet
-from haystack.views import SearchView
-from django.views.generic.base import RedirectView
-#admin.autodiscover()
+
+admin.autodiscover()
 
 
 
