@@ -4,13 +4,13 @@ from django import forms
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser, AbstractUser
 )
-from DjangoUeditor.models import UEditorField
-from DjangoUeditor.widgets import UEditorWidget
-from  datetime  import  *
-from PIL import Image
-from StringIO import StringIO
-from django.core.files.uploadedfile import SimpleUploadedFile
-import os
+#from DjangoUeditor.models import UEditorField
+#from DjangoUeditor.widgets import UEditorWidget
+#from  datetime  import  *
+#from PIL import Image
+#from StringIO import StringIO
+#from django.core.files.uploadedfile import SimpleUploadedFile
+#import os
 
 class Auth(AbstractUser):
     subscribe = models.IntegerField(default=1)
