@@ -22,27 +22,7 @@ DATABASES = {
         # The following settings are not used with sqlite3:
         'USER': 'collegedaily',
         'PASSWORD': 'Zhuoxing1989',
-        'HOST': '10.141.43.4',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '3306',                      # Set to empty string for default.
-        'OPTIONS':{'charset':'utf8mb4'},
-     },
-    'app': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'collapp',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': 'collegedaily',
-        'PASSWORD': 'Zhuoxing1989',
-        'HOST': '10.141.43.4',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '3306',                      # Set to empty string for default.
-        'OPTIONS':{'charset':'utf8mb4'},
-     },
-     'web': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'colldata',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': 'collegedaily',
-        'PASSWORD': 'Zhuoxing1989',
-        'HOST': '10.141.43.4',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '3306',                      # Set to empty string for default.
         'OPTIONS':{'charset':'utf8mb4'},
      }
@@ -86,13 +66,13 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = '/var/www/html/media/'
+MEDIA_ROOT = '/var/www/image/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-#MEDIA_URL = '/media/'
-MEDIA_URL = 'http://o6vyuc1gr.bkt.clouddn.com/media/'
+MEDIA_URL = '/media/'
+#MEDIA_URL = 'http://o6vyuc1gr.bkt.clouddn.com/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files

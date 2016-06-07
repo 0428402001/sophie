@@ -29,10 +29,76 @@ class Auth(AbstractUser):
         return self.username
 
     class Meta:
+        verbose_name = "管理用户"
+        verbose_name_plural = "管理用户"
+
+class User(models.Model):
+    username = models.CharField(max_length=20,blank=True,verbose_name=u'用户名')
+    password = models.CharField(max_length=20,blank=True,verbose_name=u'密码')
+    role_id = models.IntegerField(default=1,verbose_name=u'角色')
+    is_active = models.IntegerField(default=1,verbose_name=u'激活状态')
+    family_id = models.IntegerField(default=1,verbose_name=u'家庭')
+    total_coin = models.FloatField(default=0.0,verbose_name=u'总金币')
+    last_login = models.DateTimeField(verbose_name=u'最后登录时间')
+    date_joined = models.DateTimeField(verbose_name=u'加入时间')
+    head = models.ImageField(upload_to = "head",blank=True,verbose_name=u'头像')
+    nick_name = models.CharField(max_length=50,blank=True,verbose_name=u'昵称')
+    phone = models.CharField(max_length=20,blank=True,verbose_name=u'电话')
+    email = models.CharField(max_length=20,blank=True,verbose_name=u'邮箱')
+    regist_from =models.CharField(max_length=20,blank=True,verbose_name=u'注册来源')
+    sns_type = models.IntegerField(default = 0,verbose_name=u'第三方账户类型')
+    sns_uid = models.CharField(max_length=20,blank=True,verbose_name=u'第三方uuid')
+
+    def __unicode__(self):
+        return self.username
+
+    class Meta:
+        db_table = 'user'
         verbose_name = "注册用户"
         verbose_name_plural = "注册用户"
 
+class Courses(models.Model):
+    name = models.CharField(max_length=20,blank=True,verbose_name=u'课程名')
+    type = models.IntegerField(default=0,verbose_name=u'课程类型')
+    cover = models.ImageField(upload_to = "cover",blank=True,verbose_name=u'课程封面')
+    price = models.FloatField(default=0.0,verbose_name=u'价格')
+    head = models.ImageField(upload_to = "head",blank=True,verbose_name=u'头像')
+    uid = models.IntegerField(default=0,verbose_name=u'父id')
 
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'courses'
+        verbose_name = "课程"
+        verbose_name_plural = "课程"
+
+class Role(models.Model):
+    nickname = models.CharField(max_length=20,blank=True,verbose_name=u'昵称')
+    birthday = models.DateField(verbose_name=u'生日')
+    sex = models.IntegerField(default=0,verbose_name=u'性别')
+    role = models.IntegerField(default=0,verbose_name=u'角色')
+    price = models.FloatField(default=0.0,verbose_name=u'价格')
+    download_url = models.FileField(upload_to = "download",blank=True,verbose_name=u'课程地址')
+    level = models.IntegerField(default=0,verbose_name=u'等级')
+    version = models.CharField(max_length=20,blank=True,verbose_name=u'版本')
+    app_minconf = models.CharField(max_length=20,blank=True,verbose_name=u'app要求最低版本')
+    instroduction = models.CharField(max_length=200,blank=True,verbose_name=u'课程说明')
+    screenshot1 = models.CharField(max_length=20,blank=True,verbose_name=u'截图1')
+    screenshot2 = models.CharField(max_length=20,blank=True,verbose_name=u'截图2')
+    screenshot3 = models.CharField(max_length=20,blank=True,verbose_name=u'截图3')
+    screenshot4 = models.CharField(max_length=20,blank=True,verbose_name=u'截图4')
+    screenshot5 = models.CharField(max_length=20,blank=True,verbose_name=u'截图5')
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'courses'
+        verbose_name = "课程"
+        verbose_name_plural = "课程"
+'''
 class Blog(models.Model):
     INT_CHOICES=(
         (0,u'审核中'),
@@ -251,6 +317,6 @@ class BlogBaiduForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(BlogBaiduForm,self).__init__( *args, **kwargs)
         #self.fields['cover'].required = False
-
+'''
 
 
