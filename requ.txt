@@ -1,0 +1,7 @@
+python2.7-dev
+libjpeg-dev
+pip install django-haystack
+pip install  whoosh
+pip install  django1.6.4
+pip install PIL
+pip install django-crontab
