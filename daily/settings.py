@@ -44,13 +44,7 @@ LANGUAGE_CODE = 'zh-cn'
 
 SITE_ID = 1
 
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
-        #'PATH': os.path.join('Front-End/search/indexes', 'content'),
-        'PATH': os.path.join('/var/www/html/', 'whoosh_index'),
-    },
-}
+
 
 #print HAYSTACK_CONNECTIONS['default']['PATH']
 # If you set this to False, Django will make some optimizations so as not
@@ -152,10 +146,10 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.flatpages',
     # Uncomment the next line to enable the admin:
-    #'django_admin_bootstrapped',
-    #'django.contrib.admin',
+    'django_admin_bootstrapped',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    #'django.contrib.admindocs',
+    'django.contrib.admindocs',
     'content',
     #'redactor',
     #'DjangoUeditor',
