@@ -158,7 +158,7 @@ INSTALLED_APPS = (
     #'django.contrib.admindocs',
     'content',
     #'redactor',
-    'DjangoUeditor',
+    #'DjangoUeditor',
     #'haystack',
     #'whoosh',
 )
