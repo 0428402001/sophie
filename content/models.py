@@ -49,6 +49,8 @@ class User(models.Model):
     sns_uid = models.CharField(max_length=20,blank=True,verbose_name=u'第三方uuid')
 
     def __unicode__(self):
+        if self.username == None:
+            return self.phone
         return self.username
 
     class Meta:
