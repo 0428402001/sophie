@@ -96,9 +96,9 @@ class Role(models.Model):
         return self.name
 
     class Meta:
-        db_table = 'courses'
-        verbose_name = "课程"
-        verbose_name_plural = "课程"
+        db_table = 'role'
+        verbose_name = "角色"
+        verbose_name_plural = "角色"
 '''
 class Blog(models.Model):
     INT_CHOICES=(
