@@ -93,7 +93,7 @@ class Role(models.Model):
     uid = models.IntegerField(default=0,verbose_name=u'父id')
 
     def __unicode__(self):
-        return self.name
+        return self.nickname
 
     class Meta:
         db_table = 'role'
