@@ -63,8 +63,17 @@ class Courses(models.Model):
     type = models.IntegerField(default=0,verbose_name=u'课程类型')
     cover = models.ImageField(upload_to = "cover",blank=True,verbose_name=u'课程封面')
     price = models.FloatField(default=0.0,verbose_name=u'价格')
-    head = models.ImageField(upload_to = "head",blank=True,verbose_name=u'头像')
-    uid = models.IntegerField(default=0,verbose_name=u'父id')
+    download_url = models.FileField(upload_to = "download",blank=True,verbose_name=u'课程地址')
+    level = models.IntegerField(default=0,verbose_name=u'等级')
+    version = models.CharField(max_length=20,blank=True,verbose_name=u'版本')
+    app_minconf = models.CharField(max_length=20,blank=True,verbose_name=u'app要求最低版本')
+    instroduction = models.CharField(max_length=200,blank=True,verbose_name=u'课程说明')
+    screenshot1 = models.CharField(max_length=20,blank=True,verbose_name=u'截图1')
+    screenshot2 = models.CharField(max_length=20,blank=True,verbose_name=u'截图2')
+    screenshot3 = models.CharField(max_length=20,blank=True,verbose_name=u'截图3')
+    screenshot4 = models.CharField(max_length=20,blank=True,verbose_name=u'截图4')
+    screenshot5 = models.CharField(max_length=20,blank=True,verbose_name=u'截图5')
+
 
 
     def __unicode__(self):
@@ -80,17 +89,8 @@ class Role(models.Model):
     birthday = models.DateField(verbose_name=u'生日')
     sex = models.IntegerField(default=0,verbose_name=u'性别')
     role = models.IntegerField(default=0,verbose_name=u'角色')
-    price = models.FloatField(default=0.0,verbose_name=u'价格')
-    download_url = models.FileField(upload_to = "download",blank=True,verbose_name=u'课程地址')
-    level = models.IntegerField(default=0,verbose_name=u'等级')
-    version = models.CharField(max_length=20,blank=True,verbose_name=u'版本')
-    app_minconf = models.CharField(max_length=20,blank=True,verbose_name=u'app要求最低版本')
-    instroduction = models.CharField(max_length=200,blank=True,verbose_name=u'课程说明')
-    screenshot1 = models.CharField(max_length=20,blank=True,verbose_name=u'截图1')
-    screenshot2 = models.CharField(max_length=20,blank=True,verbose_name=u'截图2')
-    screenshot3 = models.CharField(max_length=20,blank=True,verbose_name=u'截图3')
-    screenshot4 = models.CharField(max_length=20,blank=True,verbose_name=u'截图4')
-    screenshot5 = models.CharField(max_length=20,blank=True,verbose_name=u'截图5')
+    head = models.ImageField(upload_to = "head",blank=True,verbose_name=u'头像')
+    uid = models.IntegerField(default=0,verbose_name=u'父id')
 
     def __unicode__(self):
         return self.name
