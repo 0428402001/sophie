@@ -34,23 +34,23 @@ class Auth(AbstractUser):
 class User(models.Model):
     username = models.CharField(max_length=20,blank=True,verbose_name=u'用户名')
     password = models.CharField(max_length=20,blank=True,verbose_name=u'密码')
-    role_id = models.IntegerField(default=1,verbose_name=u'角色')
-    is_active = models.IntegerField(default=1,verbose_name=u'激活状态')
+    role_id = models.IntegerField(default=1,verbose_name=u'角色',blank=True)
+    is_active = models.IntegerField(default=1,verbose_name=u'激活状态',blank=True)
     family = models.ForeignKey('Family',verbose_name=u'家庭',blank=True)
     #family_id = models.IntegerField(default=1,verbose_name=u'家庭')
-    total_coin = models.FloatField(default=0.0,verbose_name=u'总金币')
-    last_login = models.DateTimeField(verbose_name=u'最后登录时间')
-    date_joined = models.DateTimeField(verbose_name=u'加入时间')
+    total_coin = models.FloatField(default=0.0,verbose_name=u'总金币',blank=True)
+    last_login = models.DateTimeField(verbose_name=u'最后登录时间',blank=True)
+    date_joined = models.DateTimeField(verbose_name=u'加入时间',blank=True)
     head = models.ImageField(upload_to = "head",blank=True,verbose_name=u'头像')
     nick_name = models.CharField(max_length=50,blank=True,verbose_name=u'昵称')
     phone = models.CharField(max_length=20,blank=True,verbose_name=u'电话')
     email = models.CharField(max_length=20,blank=True,verbose_name=u'邮箱')
     regist_from =models.CharField(max_length=20,blank=True,verbose_name=u'注册来源')
-    sns_type = models.IntegerField(default = 0,verbose_name=u'第三方账户类型')
+    sns_type = models.IntegerField(default = 0,verbose_name=u'第三方账户类型',blank=True)
     sns_uid = models.CharField(max_length=20,blank=True,verbose_name=u'第三方uuid')
 
     def __unicode__(self):
-        if self.username == None:
+        if self.username == None or self.username == '':
             return self.phone
         return self.username
 
@@ -61,11 +61,11 @@ class User(models.Model):
 
 class Courses(models.Model):
     name = models.CharField(max_length=20,blank=True,verbose_name=u'课程名')
-    type = models.IntegerField(default=0,verbose_name=u'课程类型')
+    type = models.IntegerField(default=0,verbose_name=u'课程类型',blank=True)
     cover = models.ImageField(upload_to = "cover",blank=True,verbose_name=u'课程封面')
-    price = models.FloatField(default=0.0,verbose_name=u'价格')
+    price = models.FloatField(default=0.0,verbose_name=u'价格',blank=True)
     download_url = models.FileField(upload_to = "download",blank=True,verbose_name=u'课程地址')
-    level = models.IntegerField(default=0,verbose_name=u'等级')
+    level = models.IntegerField(default=0,verbose_name=u'等级',blank=True)
     version = models.CharField(max_length=20,blank=True,verbose_name=u'版本')
     app_minconf = models.CharField(max_length=20,blank=True,verbose_name=u'app要求最低版本')
     instroduction = models.CharField(max_length=200,blank=True,verbose_name=u'课程说明')
@@ -87,9 +87,9 @@ class Courses(models.Model):
 
 class Role(models.Model):
     nickname = models.CharField(max_length=20,blank=True,verbose_name=u'昵称')
-    birthday = models.DateField(verbose_name=u'生日')
-    sex = models.IntegerField(default=0,verbose_name=u'性别')
-    role = models.IntegerField(default=0,verbose_name=u'角色')
+    birthday = models.DateField(verbose_name=u'生日',blank=True)
+    sex = models.IntegerField(default=0,verbose_name=u'性别',blank=True)
+    role = models.IntegerField(default=0,verbose_name=u'角色',blank=True)
     head = models.ImageField(upload_to = "head",blank=True,verbose_name=u'头像')
     user = models.ForeignKey('User',verbose_name=u'父母id',blank=True)
 
