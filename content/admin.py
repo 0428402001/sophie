@@ -8,6 +8,7 @@ from content.models import *
 admin.site.register(User)
 admin.site.register(Courses)
 admin.site.register(Role)
+admin.site.register(Family)
 #admin.site.register(Auth)
 
 

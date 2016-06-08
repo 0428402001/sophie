@@ -36,7 +36,8 @@ class User(models.Model):
     password = models.CharField(max_length=20,blank=True,verbose_name=u'密码')
     role_id = models.IntegerField(default=1,verbose_name=u'角色')
     is_active = models.IntegerField(default=1,verbose_name=u'激活状态')
-    family_id = models.IntegerField(default=1,verbose_name=u'家庭')
+    family = models.ForeignKey('Family',verbose_name=u'家庭',blank=True)
+    #family_id = models.IntegerField(default=1,verbose_name=u'家庭')
     total_coin = models.FloatField(default=0.0,verbose_name=u'总金币')
     last_login = models.DateTimeField(verbose_name=u'最后登录时间')
     date_joined = models.DateTimeField(verbose_name=u'加入时间')
@@ -68,11 +69,11 @@ class Courses(models.Model):
     version = models.CharField(max_length=20,blank=True,verbose_name=u'版本')
     app_minconf = models.CharField(max_length=20,blank=True,verbose_name=u'app要求最低版本')
     instroduction = models.CharField(max_length=200,blank=True,verbose_name=u'课程说明')
-    screenshot1 = models.CharField(max_length=20,blank=True,verbose_name=u'截图1')
-    screenshot2 = models.CharField(max_length=20,blank=True,verbose_name=u'截图2')
-    screenshot3 = models.CharField(max_length=20,blank=True,verbose_name=u'截图3')
-    screenshot4 = models.CharField(max_length=20,blank=True,verbose_name=u'截图4')
-    screenshot5 = models.CharField(max_length=20,blank=True,verbose_name=u'截图5')
+    screenshot1 =  models.ImageField(upload_to = "screenshot",blank=True,verbose_name=u'截图1')
+    screenshot2 =  models.ImageField(upload_to = "screenshot",blank=True,verbose_name=u'截图2')
+    screenshot3 =  models.ImageField(upload_to = "screenshot",blank=True,verbose_name=u'截图3')
+    screenshot4 =  models.ImageField(upload_to = "screenshot",blank=True,verbose_name=u'截图4')
+    screenshot5 =  models.ImageField(upload_to = "screenshot",blank=True,verbose_name=u'截图5')
 
 
 
@@ -90,7 +91,7 @@ class Role(models.Model):
     sex = models.IntegerField(default=0,verbose_name=u'性别')
     role = models.IntegerField(default=0,verbose_name=u'角色')
     head = models.ImageField(upload_to = "head",blank=True,verbose_name=u'头像')
-    uid = models.IntegerField(default=0,verbose_name=u'父id')
+    user = models.ForeignKey('User',verbose_name=u'父母id',blank=True)
 
     def __unicode__(self):
         return self.nickname
@@ -99,6 +100,17 @@ class Role(models.Model):
         db_table = 'role'
         verbose_name = "角色"
         verbose_name_plural = "角色"
+
+class Family(models.Model):
+    desc = models.CharField(max_length=20,blank=True,verbose_name=u'昵称')
+
+    def __unicode__(self):
+        return self.desc
+
+    class Meta:
+        db_table = 'family'
+        verbose_name = "家庭"
+        verbose_name_plural = "家庭"
 '''
 class Blog(models.Model):
     INT_CHOICES=(
