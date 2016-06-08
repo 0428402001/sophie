@@ -23,7 +23,6 @@ class Auth(AbstractUser):
     regist_from =models.IntegerField(default = 0)
     sns_type = models.IntegerField(default = 0)
     sns_uid = models.CharField(max_length=32,blank=True)
-    country = models.CharField(max_length=20,blank=True)
 
     def __unicode__(self):
         return self.username
