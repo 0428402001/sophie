@@ -60,12 +60,23 @@ class User(models.Model):
         verbose_name_plural = "注册用户"
 
 class Courses(models.Model):
+    INT_CHOICES=(
+        (1,u'动画'),
+        (2,u'绘本'),
+    )
+
+    INT_CHOICES1=(
+        (1,u'初级'),
+        (2,u'中级'),
+        (3,u'高级'),
+    )
+
     name = models.CharField(max_length=20,blank=True,verbose_name=u'课程名')
-    type = models.IntegerField(default=0,verbose_name=u'课程类型',blank=True)
+    type = models.IntegerField(default=1,verbose_name=u'课程类型',blank=True,choices = INT_CHOICES)
     cover = models.ImageField(upload_to = "cover",blank=True,verbose_name=u'课程封面')
     price = models.FloatField(default=0.0,verbose_name=u'价格',blank=True)
     download_url = models.FileField(upload_to = "download",blank=True,verbose_name=u'课程地址')
-    level = models.IntegerField(default=0,verbose_name=u'等级',blank=True)
+    level = models.IntegerField(default=1,verbose_name=u'等级',blank=True,choices = INT_CHOICES1)
     version = models.CharField(max_length=20,blank=True,verbose_name=u'版本')
     app_minconf = models.CharField(max_length=20,blank=True,verbose_name=u'app要求最低版本')
     instroduction = models.CharField(max_length=200,blank=True,verbose_name=u'课程说明')
